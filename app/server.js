@@ -47,4 +47,4 @@ app.get('/', (req, res) => {
     res.send(werteListe(remoteAddress, remotePort, await publicIp.v4()));
   })();
 })
-app.listen(port, () => console.log(`Server running at internal Port ${port}`))
+app.listen(port, () => console.log(`jennerwein/whoami server is running.`))

@@ -15,6 +15,7 @@ RUN npm install
 # Bundle app source
 COPY app/ .
 
+# Webserver is running at port 8080
 EXPOSE 8080/tcp
 
 CMD [ "npm", "start" ]
