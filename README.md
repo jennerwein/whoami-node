@@ -4,7 +4,7 @@ A server that gives information about the container environment such as:
     Container hostname:  838fc2df13b5
     Container uptime:    8 min 20 sec
 
-    Locale address:      172.17.0.3 (port:8080)
+    Local address:       172.17.0.3 (port:8080)
     Standard gateway:    172.17.0.1 (eth0)
     Remote address       172.17.0.1 (port:59374)
     Public address:      94.134.37.169

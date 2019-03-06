@@ -25,7 +25,7 @@ function werteListe(remoteAddress, remotePort, publicIp) {
     Container hostname:&nbsp  <span style="font-weight: bold; color:#ff0000">${os.hostname() }</span> <br />
     Container uptime:&nbsp&nbsp&nbsp ${zeitFormat.uptime(os.uptime-startZeit)}<br />
     <br />
-    Locale address:&nbsp&nbsp&nbsp&nbsp&nbsp ${ip.address()} (port:${port})<br />
+    Local address:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ${ip.address()} (port:${port})<br />
     Standard gateway:&nbsp&nbsp&nbsp ${defaultGateway.v4.sync().gateway} (${defaultGateway.v4.sync().interface})<br />
     Remote address&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ${remoteAddress}  (port:${remotePort})  <br />
     Public address:&nbsp&nbsp&nbsp&nbsp&nbsp ${publicIp}<br />
