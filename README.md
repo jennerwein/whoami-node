@@ -14,7 +14,7 @@ A server that gives information about the container environment such as:
     Free memory:         1240027136
 
 Start the **node app** with the command `node app/server` (of course, after `npm install`).
-You can acces the server via `127.0.0.1:8080`.
+You can access the server via `127.0.0.1:8080`.
 
 Start the **container** with 
 
