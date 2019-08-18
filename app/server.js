@@ -4,7 +4,8 @@ const app = express()
 const port = 8080
 const os = require('os')
 const request = require('sync-request') // Required to figure out the public IP
-const zeitFormat = require('./zeitFormat.js');
+const defaultGateway = require('default-gateway'); // Required to find default gateway
+const zeitFormat = require('./zeitFormat.js'); //Required to format time in second to d/h/m/s
 // Set the start time for the container as a constant
 const startTime = os.uptime()
 
@@ -14,6 +15,27 @@ app.set('view engine', 'pug')
 // To serve static files
 app.use(express.static('public'))
 
+// Provides the environment data as JSON object via REST
+app.get(['/json','/rest'], function (req, res) {
+  // let remoteAddress = req.connection.remoteAddress.split(':')[3];
+  res.send(environmentData(req))
+})
+
+// Provides the environment data as JSON object via HTTP
+app.get(['/httpjson','/httprest'], function (req, res) {
+  res.render('http_json', {
+    environmentData: JSON.stringify(environmentData(req))
+  })
+})
+
+// Provides the environment data as user friendly HTML via HTTP
+app.get('/', function (req, res) {
+  res.render('custom', {
+    environmentData: environmentData(req)
+  })
+})
+
+//////////////////////////////////////////////////////////////////////
 // Collects the environment data
 function environmentData(req) {
   return {
@@ -27,6 +49,10 @@ function environmentData(req) {
     socketBytesRead: req.connection.bytesRead,
     socketBytesWritten: req.connection.bytesWritten,
     socketBufferSize: req.connection.bufferSize,
+    //default gateway
+    //https://www.npmjs.com/package/default-gateway
+    defaultGateway_v4: defaultGateway.v4.sync(),
+    // defaultGateway_v6: defaultGateway.v6.sync(),   Funktioniert leider nicht "Error: Unable to determine default gateway"
     //server
     serverAddress: req.connection.address(),
     //req
@@ -51,25 +77,6 @@ function environmentData(req) {
     osHomedir: os.homedir(),
   }
 }
-
-// Provides the environment data as JSON object via REST
-app.get(['/json','/rest'], function (req, res) {
-  // let remoteAddress = req.connection.remoteAddress.split(':')[3];
-  res.send(environmentData(req))
-})
-
-// Provides the environment data as JSON object via HTTP
-app.get(['/httpjson','/httprest'], function (req, res) {
-  res.render('httpjson', {
-    environmentData: JSON.stringify(environmentData(req))
-  })
-})
-
-// Provides the environment data as user friendly HTML via HTTP
-app.get('/', function (req, res) {
-  res.render('custom', {
-    environmentData: environmentData(req)
-  })
-})
+//////////////////////////////////////////////////////////////////////////////////
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))

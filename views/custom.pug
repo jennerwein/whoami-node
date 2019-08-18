@@ -24,11 +24,41 @@ html
           td Local Port:
           td #{environmentData.socketLocalPort}
         tr
+          td Remote Address:
+          td #{environmentData.socketRemoteAddress}
+        tr
+          td Remote Port:
+          td #{environmentData.socketRemotePort}
+        tr
+          td Default Gateway IPv4:
+          td #{environmentData.defaultGateway_v4.gateway}
+        tr
+          td Public IP:
+          td #{environmentData.publicIP}
+        tr
           td Uptime:
           td #{environmentData.osUptimeLong} 
+        tr
+          td OS platform:
+          td #{environmentData.osPlatform} 
+        tr
+          td OS release:
+          td #{environmentData.osRelease} 
+        tr
+          td Model of CPU:
+          td #{environmentData.osCpus[0].model} 
+        tr
+          td Number of CPUs:
+          td #{environmentData.osCpus.length} 
         tr
           td Total system memory:
           td #{environmentData.osTotalmem} bytes
         tr
           td Free system memory:
           td #{environmentData.osFreemem} bytes
+        tr
+          td User name:
+          td #{environmentData.osUserInfo.username}
+        tr
+          td Home directory:
+          td #{environmentData.osHomedir}
