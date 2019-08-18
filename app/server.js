@@ -29,8 +29,8 @@ app.get(['/httpjson','/httprest'], function (req, res) {
 })
 
 // Provides the environment data as user friendly HTML via HTTP
-app.get('/', function (req, res) {
-  res.render('custom', {
+app.get(['/','/index.html'], function (req, res) {
+  res.render('index', {
     environmentData: environmentData(req)
   })
 })
