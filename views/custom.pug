@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title WhoAmI
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+
+    link(link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+
+    style.
+      thead {
+      text-align: left;
+      }
+      .container {
+      }
+  body.container
+    h2.alert-success Whoami on host #{environmentData.osHostname}
+    //- https://getbootstrap.com/docs/4.0/content/tables/
+    table.table.table-striped.table-bordered.table-sm
+      tbody
+        tr
+          td Local Address:
+          td #{environmentData.socketLocalAddress}
+        tr
+          td Local Port:
+          td #{environmentData.socketLocalPort}
+        tr
+          td Uptime:
+          td #{environmentData.osUptimeLong} 
+        tr
+          td Total system memory:
+          td #{environmentData.osTotalmem} bytes
+        tr
+          td Free system memory:
+          td #{environmentData.osFreemem} bytes

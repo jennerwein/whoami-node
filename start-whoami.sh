@@ -8,6 +8,6 @@ docker container rm whoami
 docker build -t jennerwein/whoami .
 
 # Start whoami
-docker run -p 3333:8080 --name whoami --restart=always -d jennerwein/whoami
+docker run -p 7777:8080 --name whoami --restart=always -d jennerwein/whoami
 
 

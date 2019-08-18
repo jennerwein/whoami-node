@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:12-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -13,7 +13,7 @@ RUN npm install
 # RUN npm install --only=production
 
 # Bundle app source
-COPY app/ .
+COPY /app .
 
 # Webserver is running at port 8080
 EXPOSE 8080/tcp

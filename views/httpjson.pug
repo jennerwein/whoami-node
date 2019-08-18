@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title WhoAmI
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    //- Mick Hakobyan's jsonviewer, https://github.com/MickHa/jsonviewer
+    link(rel='stylesheet' href='chnobean.jsonviewer.css')
+    script(src='chnobean.jsonviewer.js')
+  body
+    //- Parses JSON object to pretty and collapsible HTML
+    script.
+      const environmentData = JSON.parse('!{environmentData}')
+      document.getElementsByTagName("body")[0].appendChild(chnobean.jsonviewer.domify(environmentData).rootElement)
