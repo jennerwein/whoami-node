@@ -13,7 +13,7 @@ RUN npm install
 # RUN npm install --only=production
 
 # Bundle app source
-COPY /app .
+COPY . .
 
 # Webserver is running at port 8080
 EXPOSE 8080/tcp
