@@ -1,6 +1,8 @@
 # whoami
 A server that gives information about the container environment such as:
 
+![Whoami](./images/whoami.jpg)
+
     Container hostname:  838fc2df13b5
     Container uptime:    8 min 20 sec
 
@@ -14,8 +16,8 @@ A server that gives information about the container environment such as:
     Free memory:         1240027136
 
 Start the **node app** with the command `node app/server` (of course, after `npm install`).
-You can access the server via http://127.0.0.1:8080.
+You can access the server via <http://127.0.0.1:8080> .
 
-Start the **container** with 
+Start the **container** with:
 
 `docker run -p 8080:8080 --name whoami -d jennerwein/whoami`
