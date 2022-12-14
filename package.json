@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jennerwein/whoami-node#readme",
   "dependencies": {
     "default-gateway": "^6.0.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "pug": "^3.0.2",
     "sync-request": "^6.1.0"
   }
